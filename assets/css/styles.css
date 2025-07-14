@@ -229,7 +229,7 @@ img {
   color: #fff;
   padding: 0.75rem 2.5rem;
   font-weight: var(--font-semi);
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
   transition: 0.3s;
 }
 .button:hover {
@@ -488,15 +488,38 @@ img {
 }
 .home__img {
   text-align: center;
-  margin: 20px -8rem;
+  margin: 20px 0; /* Remove negative margin for better responsiveness */
 }
 
+/* Responsive profile image */
 .profile-img {
-  width: 550px;
-  height: 430px;
-  border-radius: 50%; /* Makes it a circle */
-  box-shadow: rgb(97 16 221 / 15%) 0px 48px 100px 0px;;
+  width: 80vw;
+  max-width: 350px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   object-fit: cover;
-  border: 5px solid #fff;
-  background: #fff;
+  border: 8px solid #fff;
+  box-shadow: 0 20px 60px rgba(97, 16, 221, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: linear-gradient(145deg, #f3f3f3, #ffffff);
 }
+
+@media (max-width: 480px) {
+  .profile-img {
+    width: 60vw;  /* Smaller width on mobile */
+    max-width: 250px; /* Smaller max width for phones */
+    border: 6px solid #fff; /* Slightly thinner border on mobile */
+  }
+}
+@media (max-width: 480px) {
+  .home__img {
+    margin: 15px 10px; /* Smaller vertical and some horizontal margin */
+  }
+}
+ 
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 30px 80px rgba(97, 16, 221, 0.4);
+}
+
